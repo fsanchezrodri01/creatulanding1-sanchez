@@ -1,8 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import logo from "../logo.png";
 
-const categories = ["Electronica", "Ropa Dama", "Joyeria", "Ropa Caballero"];
+const categories = [
+  { name: "Electronica", path: "electronics" },
+  { name: "Ropa Dama", path: "womens-dresses" },
+  { name: "Joyeria", path: "womens-jewellery" },
+  { name: "Ropa Caballero", path: "mens-shirts" },
+];
 
 const NavBar = () => (
   <nav
@@ -20,28 +26,23 @@ const NavBar = () => (
         Mercado Calidad Mexico
       </span>
     </div>
-
-    <div style={{ minWidth: 200 }}></div>
+    <div style={{ display: "flex", gap: "1.5rem" }}>
+      {categories.map((cat) => (
+        <Link
+          key={cat.path}
+          to={`/category/${cat.path}`}
+          style={{
+            textDecoration: "none",
+            color: "#333",
+            fontWeight: 500,
+          }}
+        >
+          {cat.name}
+        </Link>
+      ))}
+    </div>
     <CartWidget />
   </nav>
-);
-
-export const CategoriesBar = () => (
-  <div
-    style={{
-      display: "flex",
-      alignItems: "center",
-      background: "#fff",
-      padding: "0.5rem 0 0.5rem 2.5rem",
-      fontSize: 18,
-      fontWeight: 500,
-      gap: "2.5rem",
-    }}
-  >
-    {categories.map((cat) => (
-      <span key={cat}>{cat}</span>
-    ))}
-  </div>
 );
 
 export default NavBar;

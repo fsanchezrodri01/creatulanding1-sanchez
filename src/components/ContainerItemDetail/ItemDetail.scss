@@ -1,0 +1,28 @@
+/* Placeholder for ItemDetail styles */
+.itemDetail {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  max-width: 900px;
+}
+.itemDetail__container {
+  background: #fff;
+}
+.itemDetail__img img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.itemDetail__title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.itemDetail__btn {
+  background: #2a006e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}

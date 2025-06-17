@@ -1,14 +1,23 @@
-import NavBar, { CategoriesBar } from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
-import logo from "./logo.svg";
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import ContainerItemList from "./components/ContainerItemList/ContainerItemList";
+import ContainerItemDetail from "./components/ContainerItemDetail/ContainerItemDetail";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <CategoriesBar />
-      <ItemListContainer texto="Creamos soluciones digitales con tecnología de vanguardia" />
+    <div className="App" style={{ display: "flex" }}>
+      {/* Sidebar for categories can be added here if needed */}
+      <div style={{ flex: 1 }}>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ContainerItemList />} />
+          <Route path="/category/:catName" element={<ContainerItemList />} />
+          <Route path="/item/:itemId" element={<ContainerItemDetail />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,17 @@
+/* Placeholder for ItemCount styles */
+.itemCount {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.itemCount__btn {
+  background: #eee;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.itemCount__count {
+  min-width: 2rem;
+  text-align: center;
+}

@@ -1,6 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import { getProducts } from "../firebase/db";
+
 function ContainerItemDetail() {
   const [prod, setProd] = useState();
   const { itemId } = useParams();
@@ -17,6 +19,8 @@ function ContainerItemDetail() {
   const getItems = useCallback(async () => {
     const data = await callJson(`https://dummyjson.com/products/${itemId}`);
     setProd(data);
+    console.log("test-db");
+    getProducts();
   }, [itemId]);
   useEffect(() => {
     getItems();

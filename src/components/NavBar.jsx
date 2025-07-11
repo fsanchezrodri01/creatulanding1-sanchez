@@ -4,7 +4,7 @@ import CartWidget from "./CartWidget";
 import logo from "../logo.png";
 
 const categories = [
-  { name: "Electronica", path: "electronics" },
+  { name: "Electronica", path: "tablets" },
   { name: "Ropa Dama", path: "womens-dresses" },
   { name: "Joyeria", path: "womens-jewellery" },
   { name: "Ropa Caballero", path: "mens-shirts" },

@@ -1,18 +1,16 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
+import { getProduct } from "../../firebase/db";
 import ItemDetail from "./ItemDetail";
-import { getProducts } from "../../firebase/db";
 
 function ContainerItemDetail() {
   const [prod, setProd] = useState();
   const { itemId } = useParams();
 
   const getItem = useCallback(async () => {
-    const products = await getProducts();
-    const found = products.find((item) => item.id === itemId);
-    setProd(found);
+    const data = await getProduct(itemId);
+    setProd(data);
   }, [itemId]);
-
   useEffect(() => {
     getItem();
   }, [getItem]);

@@ -34,18 +34,6 @@ function ItemDetail({ prod }) {
             <p>{prod.description}</p>
             <p>Marca: {prod.brand ? prod.brand : "Sin marca"}</p>
             <p>Garantia: {prod.warrantyInformation}</p>
-            <p className="">
-              Dimenciones:
-              <span className="itemDetail__dimenciones">
-                Ancho: {prod.dimensions?.width}
-              </span>
-              <span className="itemDetail__dimenciones">
-                Alto: {prod.dimensions?.height}
-              </span>
-              <span className="itemDetail__dimenciones">
-                Profundidad: {prod.dimensions?.depth}
-              </span>
-            </p>
           </div>
         </div>
       </div>

@@ -1,31 +1,23 @@
 import { useEffect, useState, useCallback } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
+import { getProducts, getProductsByCategory } from "../../firebase/db";
 
 function ContainerItemList() {
   const [prod, setProd] = useState([]);
   const { catName } = useParams();
 
-  async function callJson(url) {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      return data;
-    } catch (err) {
-      alert(`error de conexion ${err}`);
-    }
-  }
   const getProd = useCallback(async () => {
+    const products = await getProducts();
+    // If you want to filter by category, do it here:
     if (catName) {
-      const filter = await callJson(
-        `https://dummyjson.com/products/category/${catName}`
-      );
-      setProd(filter.products);
+      // setProd(products.filter((item) => item.category === catName));
+      getProductsByCategory(catName).then((products) => setProd(products));
     } else {
-      const all = await callJson(`https://dummyjson.com/products`);
-      setProd(all.products);
+      setProd(products);
     }
   }, [catName]);
+
   useEffect(() => {
     getProd();
   }, [getProd]);

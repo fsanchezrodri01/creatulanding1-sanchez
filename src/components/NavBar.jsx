@@ -21,10 +21,20 @@ const NavBar = () => (
     }}
   >
     <div style={{ display: "flex", alignItems: "center" }}>
-      <img src={logo} alt="Logo" style={{ height: 40, marginRight: 10 }} />
-      <span style={{ fontWeight: "bold", fontSize: 24 }}>
-        Mercado Calidad Mexico
-      </span>
+      <Link
+        to="/"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          textDecoration: "none",
+          color: "inherit",
+        }}
+      >
+        <img src={logo} alt="Logo" style={{ height: 40, marginRight: 10 }} />
+        <span style={{ fontWeight: "bold", fontSize: 24 }}>
+          Mercado Calidad Mexico
+        </span>
+      </Link>
     </div>
     <div style={{ display: "flex", gap: "1.5rem" }}>
       {categories.map((cat) => (

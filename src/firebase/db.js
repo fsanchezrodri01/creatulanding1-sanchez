@@ -6,6 +6,7 @@ import {
   where,
   doc,
   getDoc,
+  addDoc,
 } from "firebase/firestore";
 import { app } from "./config.js";
 // Initialize Cloud Firestore and get a reference to the service
